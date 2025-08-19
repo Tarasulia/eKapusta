@@ -10,7 +10,7 @@ permissions:
   pages: write
   id-token: write
 
-# Дозволити тільки один деплой за раз
+# Дозволити тільки один деплой за
 concurrency:
   group: "pages"
   cancel-in-progress: false
