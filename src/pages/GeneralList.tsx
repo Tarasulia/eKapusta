@@ -3,7 +3,6 @@ import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline'
 import { useSavings, useDeleteSaving } from '../hooks/useSavings.js'
 import { Saving } from '../types/savings.js'
 import EditSavingModal from '../components/EditSavingModal.js'
-import ImportHistoricalData from '../components/ImportHistoricalData.js'
 
 export default function GeneralList() {
   const { data: savings = [], isLoading, error } = useSavings()
@@ -92,9 +91,7 @@ export default function GeneralList() {
             Всі ваші заощадження в одному місці.
           </p>
         </div>
-        <div className="mt-4 sm:mt-0 sm:ml-16">
-          <ImportHistoricalData />
-        </div>
+
       </div>
 
       {/* Mobile view */}

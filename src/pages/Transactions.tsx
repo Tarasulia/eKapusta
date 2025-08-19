@@ -3,6 +3,7 @@ import { FunnelIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline'
 import { useSavings, useDeleteSaving } from '../hooks/useSavings.js'
 import { Saving } from '../types/savings.js'
 import EditSavingModal from '../components/EditSavingModal.js'
+import ImportHistoricalData from '../components/ImportHistoricalData.js'
 
 interface BalanceEntry {
   date: string
@@ -155,6 +156,9 @@ export default function Transactions() {
           <p className="mt-2 text-sm text-gray-700">
             Баланс рахунку по датах у вашому форматі.
           </p>
+        </div>
+        <div className="mt-4 sm:mt-0 sm:ml-16">
+          <ImportHistoricalData />
         </div>
       </div>
 

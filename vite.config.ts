@@ -55,7 +55,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
-        navigateFallback: '/index.html',
+        navigateFallback: process.env.NODE_ENV === 'production' ? '/eKapusta/index.html' : '/index.html',
         navigateFallbackDenylist: [/^\/_/],
         runtimeCaching: [
           {
