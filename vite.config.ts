@@ -4,6 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: process.env.NODE_ENV === 'production' ? '/eKapusta/' : '/',
   plugins: [
     react(),
     VitePWA({
@@ -17,8 +18,8 @@ export default defineConfig({
         background_color: '#f9fafb',
         display: 'standalone',
         orientation: 'portrait',
-        scope: '/',
-        start_url: '/',
+        scope: process.env.NODE_ENV === 'production' ? '/eKapusta/' : '/',
+        start_url: process.env.NODE_ENV === 'production' ? '/eKapusta/' : '/',
         lang: 'uk-UA',
         categories: ['finance', 'productivity'],
         icons: [
@@ -40,14 +41,14 @@ export default defineConfig({
             name: 'Додати заощадження',
             short_name: 'Додати',
             description: 'Швидко додати нове заощадження',
-            url: '/?action=add',
+            url: process.env.NODE_ENV === 'production' ? '/eKapusta/?action=add' : '/?action=add',
             icons: [{ src: 'pwa-192x192.png', sizes: '192x192' }]
           },
           {
             name: 'Переглянути звіти',
             short_name: 'Звіти',
             description: 'Відкрити сторінку звітів',
-            url: '/reports',
+            url: process.env.NODE_ENV === 'production' ? '/eKapusta/reports' : '/reports',
             icons: [{ src: 'pwa-192x192.png', sizes: '192x192' }]
           }
         ]
