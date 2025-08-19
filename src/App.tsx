@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
-import { PlusIcon, ChartBarIcon, TableCellsIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
+import { PlusIcon, ChartBarIcon, TableCellsIcon, HandRaisedIcon, ListBulletIcon } from '@heroicons/react/24/outline'
 import GeneralList from './pages/GeneralList.js'
 import Reports from './pages/Reports.js'
 import Transactions from './pages/Transactions.js'
@@ -24,6 +24,7 @@ function App() {
   }, [location.search, location.pathname, navigate])
 
   const navigation = [
+    { name: 'Список', href: '/', icon: ListBulletIcon, current: location.pathname === '/' },
     { name: 'Транзакції', href: '/transactions', icon: TableCellsIcon, current: location.pathname === '/transactions' },
     { name: 'Борги', href: '/debts', icon: HandRaisedIcon, current: location.pathname === '/debts' },
     { name: 'Звіти', href: '/reports', icon: ChartBarIcon, current: location.pathname === '/reports' },
@@ -94,7 +95,7 @@ function App() {
 
       {/* Mobile bottom navigation */}
       <div className="lg:hidden fixed bottom-0 inset-x-0 bg-white border-t border-gray-200">
-        <div className="grid grid-cols-3">
+                    <div className="grid grid-cols-4">
           {navigation.map((item) => {
             const Icon = item.icon
             return (
